@@ -1,0 +1,27 @@
+services:
+  app:
+    build: .
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+    environment:
+      ELASTIC_PASSWORD: "banana"
+      ELASTIC_USERNAME: "elastic"
+      ELASTIC_CERT_PATH: "/data/es01.crt"
+      ELASTIC_SEARCH_HOST: "https://es01:9200"
+      PICKUP_LINE_INDEX_NAME: "pickup_lines"
+      TAGS_INDEX_NAME: "tags"
+      USER_INDEX_NAME: "users"
+      STORAGE_PATH: "/data/images"
+      DATABASE_DSN: "root:testeroni@tcp(db:3306)/playbook?charset=utf8mb4&parseTime=True&loc=Local"
+      JWT_SECRET_KEY: "dd43619d2433a0ff1ba274fcdc672f2a8f9785151f4b083e29a07ab0987c6125"
+      GIN_MODE: "release"
+    networks:
+        - my-network
+    volumes:
+      - ./.play_data:/data
+
+networks:
+  my-network:
+    name: elastic
+    external: true

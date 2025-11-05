@@ -1,0 +1,9 @@
+/tmp
+elastic_mappings.txt
+*.crt
+/.play_data
+*.db
+*.db-journal
+*.out
+*.svg
+.docker/.play_data/**

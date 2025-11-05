@@ -1,0 +1,670 @@
+{
+  "requests": [
+    {
+      "user": {
+        "display_name": "Kevin Moody",
+        "password": "SuperSecurePassword1234!",
+        "user_image": "",
+        "username": "user1@example.com"
+      },
+      "tags": [
+        {
+          "name": "Programming",
+          "description": "Techie and geeky pickup lines"
+        },
+        {
+          "name": "French",
+          "description": "French words"
+        },
+        {
+          "name": "DarkHumor",
+          "description": "For those with a twisted sense of humor"
+        }
+      ],
+      "pickup_lines": [
+        {
+          "title": "French",
+          "content": "Voulez-vous coucher avec moi ce soir?",
+          "tags": [
+            "French"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Semicolon",
+          "content": "Are you a semicolon? Because you complete my statement.",
+          "tags": [
+            "Programming"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Grave",
+          "content": "Are you a grave? Because I’m dying to be in you.",
+          "tags": [
+            "DarkHumor",
+            "French"
+          ],
+          "visible": true
+        },
+        {
+          "title": "French",
+          "content": "Voulez-vous coucher avec moi ce soir?",
+          "tags": [
+            "French",
+            "Programming"
+          ],
+          "visible": true
+        },
+        {
+          "title": "JS",
+          "content": "You must be made of JavaScript, because you make my heart callback.",
+          "tags": [
+            "Programming"
+          ],
+          "visible": true
+        }
+      ]
+    },
+    {
+      "user": {
+        "display_name": "Angela Sullivan",
+        "password": "SuperSecurePassword1234!",
+        "user_image": "",
+        "username": "user2@example.com"
+      },
+      "tags": [
+        {
+          "name": "Romantic",
+          "description": "Heartfelt and cheesy lines"
+        },
+        {
+          "name": "Cheesy",
+          "description": "So cheesy it's charming"
+        },
+        {
+          "name": "DadJoke",
+          "description": "Classic dad joke pickup lines"
+        }
+      ],
+      "pickup_lines": [
+        {
+          "title": "Snow",
+          "content": "If kisses were snowflakes, I’d send you a blizzard.",
+          "tags": [
+            "Romantic"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Cheese",
+          "content": "Are you made of cheese? Because you're looking gouda tonight.",
+          "tags": [
+            "Cheesy"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Map",
+          "content": "Do you have a map? I just got lost in your eyes.",
+          "tags": [
+            "DadJoke"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Map",
+          "content": "Do you have a map? I just got lost in your eyes.",
+          "tags": [
+            "DadJoke",
+            "Romantic"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Snow",
+          "content": "If kisses were snowflakes, I’d send you a blizzard.",
+          "tags": [
+            "Romantic",
+            "Cheesy"
+          ],
+          "visible": true
+        }
+      ]
+    },
+    {
+      "user": {
+        "display_name": "Thomas Willis",
+        "password": "SuperSecurePassword1234!",
+        "user_image": "",
+        "username": "user3@example.com"
+      },
+      "tags": [
+        {
+          "name": "Clever",
+          "description": "Witty and sharp lines"
+        },
+        {
+          "name": "Programming",
+          "description": "Techie and geeky pickup lines"
+        },
+        {
+          "name": "DadJoke",
+          "description": "Classic dad joke pickup lines"
+        },
+        {
+          "name": "Risky",
+          "description": "PickupLine that could send you to jail"
+        }
+      ],
+      "pickup_lines": [
+        {
+          "title": "Dictionary",
+          "content": "You're like a dictionary — you add meaning to my life.",
+          "tags": [
+            "Clever"
+          ],
+          "visible": true
+        },
+        {
+          "title": "JS",
+          "content": "You must be made of JavaScript, because you make my heart callback.",
+          "tags": [
+            "Programming"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Map",
+          "content": "Do you have a map? I just got lost in your eyes.",
+          "tags": [
+            "DadJoke"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Trouble",
+          "content": "I must be in trouble, because you're too hot to be legal.",
+          "tags": [
+            "Risky"
+          ],
+          "visible": true
+        },
+        {
+          "title": "JS",
+          "content": "You must be made of JavaScript, because you make my heart callback.",
+          "tags": [
+            "Programming",
+            "Clever"
+          ],
+          "visible": true
+        }
+      ]
+    },
+    {
+      "user": {
+        "display_name": "Diana Walker",
+        "password": "SuperSecurePassword1234!",
+        "user_image": "",
+        "username": "user4@example.com"
+      },
+      "tags": [
+        {
+          "name": "DarkHumor",
+          "description": "For those with a twisted sense of humor"
+        },
+        {
+          "name": "French",
+          "description": "French words"
+        },
+        {
+          "name": "Flirty",
+          "description": "Straight to the point"
+        },
+        {
+          "name": "Clever",
+          "description": "Witty and sharp lines"
+        }
+      ],
+      "pickup_lines": [
+        {
+          "title": "Grave",
+          "content": "Are you a grave? Because I’m dying to be in you.",
+          "tags": [
+            "DarkHumor"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Croissant",
+          "content": "You must be a croissant, because you're making my heart flaky.",
+          "tags": [
+            "French"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Band Aid",
+          "content": "Do you have a Band-Aid? Because I just scraped my knee falling for you.",
+          "tags": [
+            "Flirty"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Time",
+          "content": "If beauty were time, you’d be eternity.",
+          "tags": [
+            "Clever"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Grave",
+          "content": "Are you a grave? Because I’m dying to be in you.",
+          "tags": [
+            "DarkHumor",
+            "French"
+          ],
+          "visible": true
+        }
+      ]
+    },
+
+    {
+      "user": {
+        "display_name": "Cynthia White",
+        "password": "SuperSecurePassword1234!",
+        "user_image": "",
+        "username": "user5@example.com"
+      },
+      "tags": [
+        {
+          "name": "DadJoke",
+          "description": "Classic dad joke pickup lines"
+        },
+        {
+          "name": "Nerdy",
+          "description": "For the bookworms and intellectuals"
+        },
+        {
+          "name": "Programming",
+          "description": "Techie and geeky pickup lines"
+        }
+      ],
+      "pickup_lines": [
+        {
+          "title": "Ticket",
+          "content": "Are you a parking ticket? Because you've got FINE written all over you.",
+          "tags": [
+            "DadJoke"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Math",
+          "content": "You must be the square root of -1 because you can’t be real.",
+          "tags": [
+            "Nerdy"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Semicolon",
+          "content": "Are you a semicolon? Because you complete my statement.",
+          "tags": [
+            "Programming"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Copper",
+          "content": "Are you made of copper and tellurium? Because you’re Cu-Te.",
+          "tags": [
+            "Nerdy"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Ticket",
+          "content": "Are you a parking ticket? Because you've got FINE written all over you.",
+          "tags": [
+            "DadJoke",
+            "Programming"
+          ],
+          "visible": true
+        }
+      ]
+    },
+    {
+      "user": {
+        "display_name": "Christopher Hayes",
+        "password": "SuperSecurePassword1234!",
+        "user_image": "",
+        "username": "user6@example.com"
+      },
+      "tags": [
+        {
+          "name": "Romantic",
+          "description": "Heartfelt and cheesy lines"
+        },
+        {
+          "name": "Cheesy",
+          "description": "So cheesy it's charming"
+        },
+        {
+          "name": "Risky",
+          "description": "PickupLine that could send you to jail"
+        },
+        {
+          "name": "DarkHumor",
+          "description": "For those with a twisted sense of humor"
+        }
+      ],
+      "pickup_lines": [
+        {
+          "title": "Light",
+          "content": "You light up my world like nobody else.",
+          "tags": [
+            "Romantic"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Cheese",
+          "content": "Are you made of cheese? Because you're looking gouda tonight.",
+          "tags": [
+            "Cheesy"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Law",
+          "content": "I must be in trouble, because you're too hot to be legal.",
+          "tags": [
+            "Risky"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Grave",
+          "content": "Are you a grave? Because I’m dying to be in you.",
+          "tags": [
+            "DarkHumor"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Snow",
+          "content": "If kisses were snowflakes, I’d send you a blizzard.",
+          "tags": [
+            "Romantic",
+            "Cheesy"
+          ],
+          "visible": true
+        }
+      ]
+    },
+    {
+      "user": {
+        "display_name": "Jonathan Stanley",
+        "password": "SuperSecurePassword1234!",
+        "user_image": "",
+        "username": "user7@example.com"
+      },
+      "tags": [
+        {
+          "name": "French",
+          "description": "French words"
+        },
+        {
+          "name": "Clever",
+          "description": "Witty and sharp lines"
+        },
+        {
+          "name": "Programming",
+          "description": "Techie and geeky pickup lines"
+        }
+      ],
+      "pickup_lines": [
+        {
+          "title": "JS",
+          "content": "You must be made of JavaScript, because you make my heart callback.",
+          "tags": [
+            "Programming"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Time",
+          "content": "If beauty were time, you’d be eternity.",
+          "tags": [
+            "Clever"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Croissant",
+          "content": "You must be a croissant, because you're making my heart flaky.",
+          "tags": [
+            "French"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Dictionary",
+          "content": "You're like a dictionary — you add meaning to my life.",
+          "tags": [
+            "Clever"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Semicolon",
+          "content": "Are you a semicolon? Because you complete my statement.",
+          "tags": [
+            "Programming",
+            "French"
+          ],
+          "visible": true
+        }
+      ]
+    },
+    {
+      "user": {
+        "display_name": "Brenda Phillips",
+        "password": "SuperSecurePassword1234!",
+        "user_image": "",
+        "username": "user8@example.com"
+      },
+      "tags": [
+        {
+          "name": "Cheesy",
+          "description": "So cheesy it's charming"
+        },
+        {
+          "name": "Nerdy",
+          "description": "For the bookworms and intellectuals"
+        },
+        {
+          "name": "Flirty",
+          "description": "Straight to the point"
+        }
+      ],
+      "pickup_lines": [
+        {
+          "title": "Cheese",
+          "content": "Are you made of cheese? Because you're looking gouda tonight.",
+          "tags": [
+            "Cheesy"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Copper",
+          "content": "Are you made of copper and tellurium? Because you’re Cu-Te.",
+          "tags": [
+            "Nerdy"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Phone",
+          "content": "Hey, I lost my phone number. Can I have yours?",
+          "tags": [
+            "Flirty"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Math",
+          "content": "You must be the square root of -1 because you can’t be real.",
+          "tags": [
+            "Nerdy"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Vegetable",
+          "content": "If you were a vegetable, you’d be a cute-cumber!",
+          "tags": [
+            "Cheesy",
+            "Flirty"
+          ],
+          "visible": true
+        }
+      ]
+    },
+    {
+      "user": {
+        "display_name": "Tyler Washington",
+        "password": "SuperSecurePassword1234!",
+        "user_image": "",
+        "username": "user9@example.com"
+      },
+      "tags": [
+        {
+          "name": "Risky",
+          "description": "PickupLine that could send you to jail"
+        },
+        {
+          "name": "DarkHumor",
+          "description": "For those with a twisted sense of humor"
+        },
+        {
+          "name": "DadJoke",
+          "description": "Classic dad joke pickup lines"
+        }
+      ],
+      "pickup_lines": [
+        {
+          "title": "Underage",
+          "content": "Are you underage? Because I feel like this is a trap.",
+          "tags": [
+            "Risky"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Hospital",
+          "content": "You must be a hospital bill, because you’re giving me anxiety.",
+          "tags": [
+            "DarkHumor"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Ticket",
+          "content": "Are you a parking ticket? Because you've got FINE written all over you.",
+          "tags": [
+            "DadJoke"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Law",
+          "content": "I must be in trouble, because you're too hot to be legal.",
+          "tags": [
+            "Risky",
+            "DarkHumor"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Map",
+          "content": "Do you have a map? I just got lost in your eyes.",
+          "tags": [
+            "DadJoke",
+            "Risky"
+          ],
+          "visible": true
+        }
+      ]
+    },
+    {
+      "user": {
+        "display_name": "Nancy Perkins",
+        "password": "SuperSecurePassword1234!",
+        "user_image": "",
+        "username": "user10@example.com"
+      },
+      "tags": [
+        {
+          "name": "Flirty",
+          "description": "Straight to the point"
+        },
+        {
+          "name": "Clever",
+          "description": "Witty and sharp lines"
+        },
+        {
+          "name": "Romantic",
+          "description": "Heartfelt and cheesy lines"
+        }
+      ],
+      "pickup_lines": [
+        {
+          "title": "Band Aid",
+          "content": "Do you have a Band-Aid? Because I just scraped my knee falling for you.",
+          "tags": [
+            "Flirty"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Dictionary",
+          "content": "You're like a dictionary — you add meaning to my life.",
+          "tags": [
+            "Clever"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Snow",
+          "content": "If kisses were snowflakes, I’d send you a blizzard.",
+          "tags": [
+            "Romantic"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Phone",
+          "content": "Hey, I lost my phone number. Can I have yours?",
+          "tags": [
+            "Flirty"
+          ],
+          "visible": true
+        },
+        {
+          "title": "Time",
+          "content": "If beauty were time, you’d be eternity.",
+          "tags": [
+            "Clever",
+            "Romantic"
+          ],
+          "visible": true
+        }
+      ]
+    }
+  ]
+}

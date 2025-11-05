@@ -1,0 +1,790 @@
+basePath: /api
+definitions:
+  controllers.PickupLineListResponse:
+    properties:
+      page:
+        type: integer
+      pickup_lines:
+        items:
+          $ref: '#/definitions/responses.SinglePickupLineInfoResponse'
+        type: array
+      total:
+        type: integer
+    type: object
+  entities.Reaction:
+    properties:
+      starred:
+        type: boolean
+      vote:
+        $ref: '#/definitions/entities.Vote'
+    type: object
+  entities.Statistic:
+    properties:
+      number_of_failures:
+        type: integer
+      number_of_successes:
+        type: integer
+      number_of_tries:
+        type: integer
+      success_percentage:
+        type: number
+    type: object
+  entities.Tag:
+    properties:
+      description:
+        example: PickupLine that could send you to jail
+        type: string
+      id:
+        example: 01976595-4044-7426-b6fa-f64173211b94
+        type: string
+      name:
+        example: Risky
+        type: string
+      user_id:
+        example: 01976595-4044-7426-b6fa-f64173211b94
+        type: string
+    type: object
+  entities.Visibility:
+    enum:
+    - ALL
+    - VISIBLE
+    - NOT_VISIBLE
+    type: string
+    x-enum-varnames:
+    - All
+    - Visible
+    - NotVisible
+  entities.Vote:
+    enum:
+    - NONE
+    - UPVOTE
+    - DOWNVOTE
+    type: string
+    x-enum-varnames:
+    - None
+    - Upvote
+    - Downvote
+  filters.SortingType:
+    enum:
+    - NEW
+    - BEST_OF_ALL_TIME
+    - TRENDING
+    - RANDOM
+    type: string
+    x-enum-varnames:
+    - New
+    - BestOfAllTime
+    - Trending
+    - Random
+  requests.CreateUserRequest:
+    properties:
+      display_name:
+        example: The Lion
+        type: string
+      password:
+        example: SuperSecurePassword1234!
+        type: string
+      user_image:
+        example: iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII
+        type: string
+      username:
+        example: the.lion@example.com
+        type: string
+    type: object
+  requests.PickupLineBodyRequest:
+    properties:
+      content:
+        example: Yo, are you a baker? Because you are a cutie pie
+        type: string
+      tags:
+        items:
+          $ref: '#/definitions/requests.TagIdRequest'
+        type: array
+      title:
+        example: The Baker
+        type: string
+      visible:
+        example: true
+        type: boolean
+    type: object
+  requests.TagBodyRequest:
+    properties:
+      description:
+        example: PickupLine that could send you to jail
+        type: string
+      name:
+        example: Risky
+        type: string
+    type: object
+  requests.TagIdRequest:
+    properties:
+      id:
+        example: 01976595-4044-7426-b6fa-f64173211b94
+        type: string
+    type: object
+  requests.UpdateUserDisplayNameRequest:
+    properties:
+      display_name:
+        example: The Lion
+        type: string
+    type: object
+  requests.UserLoginRequest:
+    properties:
+      password:
+        example: SuperSecurePassword1234!
+        type: string
+      username:
+        example: the.lion@example.com
+        type: string
+    type: object
+  responses.BaseUserInfoResponse:
+    properties:
+      display_name:
+        example: The Lion
+        type: string
+      id:
+        example: 01976595-4044-7426-b6fa-f64173211b94
+        type: string
+      username:
+        example: the.lion@example.com
+        type: string
+    type: object
+  responses.ElasticSearchUserListResponse:
+    properties:
+      page:
+        type: integer
+      total:
+        type: integer
+      users:
+        items:
+          $ref: '#/definitions/responses.BaseUserInfoResponse'
+        type: array
+    type: object
+  responses.ErrorResponse:
+    properties:
+      code:
+        example: 400
+        type: integer
+      message:
+        example: Could not parse entity
+        type: string
+    type: object
+  responses.GenericSuccessResponse:
+    properties:
+      success:
+        example: true
+        type: boolean
+    type: object
+  responses.SinglePickupLineInfoResponse:
+    properties:
+      content:
+        example: Yo, are you a baker? Because you are a cutie pie
+        type: string
+      id:
+        example: cc4e0e71-d67b-4249-8a64-e75196835df4
+        type: string
+      reaction:
+        $ref: '#/definitions/entities.Reaction'
+      statistics:
+        $ref: '#/definitions/entities.Statistic'
+      tags:
+        items:
+          $ref: '#/definitions/entities.Tag'
+        type: array
+      title:
+        example: The Baker
+        type: string
+      updated_at:
+        example: "2025-01-01T11:23:00Z"
+        type: string
+      user:
+        $ref: '#/definitions/responses.BaseUserInfoResponse'
+      visible:
+        type: boolean
+    type: object
+externalDocs:
+  description: OpenAPI
+  url: https://swagger.io/resources/open-api/
+host: playbook.example.com
+info:
+  contact:
+    email: support@example.com
+    name: API Support
+  description: The playbook
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: The playbook
+  version: "1.0"
+paths:
+  /login:
+    post:
+      consumes:
+      - application/json
+      description: Get Auth token
+      parameters:
+      - description: User Credentials
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/requests.UserLoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.BaseUserInfoResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      summary: Get Auth token
+      tags:
+      - Auth
+  /pickup-lines:
+    get:
+      consumes:
+      - application/json
+      description: Get a PickupLine List
+      parameters:
+      - in: query
+        name: content
+        type: string
+      - in: query
+        name: only_upvoted
+        type: boolean
+      - in: query
+        name: page
+        type: integer
+      - enum:
+        - NEW
+        - BEST_OF_ALL_TIME
+        - TRENDING
+        - RANDOM
+        in: query
+        name: sorting_type
+        type: string
+        x-enum-varnames:
+        - New
+        - BestOfAllTime
+        - Trending
+        - Random
+      - in: query
+        name: starred
+        type: boolean
+      - in: query
+        name: success_percentage
+        type: number
+      - collectionFormat: csv
+        in: query
+        items:
+          type: string
+        name: tags[]
+        type: array
+      - in: query
+        name: title
+        type: string
+      - in: query
+        name: user_id
+        type: string
+      - enum:
+        - ALL
+        - VISIBLE
+        - NOT_VISIBLE
+        in: query
+        name: visibility
+        type: string
+        x-enum-varnames:
+        - All
+        - Visible
+        - NotVisible
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controllers.PickupLineListResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Get a PickupLine List
+      tags:
+      - Pickup-Line
+    post:
+      consumes:
+      - application/json
+      description: Create a PickupLine
+      parameters:
+      - description: PickupLine to add
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/requests.PickupLineBodyRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.SinglePickupLineInfoResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Create a PickupLine
+      tags:
+      - Pickup-Line
+  /pickup-lines/{pickupLineId}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a PickupLine
+      parameters:
+      - description: PickupLine ID
+        in: path
+        name: pickupLineId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.GenericSuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Delete a PickupLine
+      tags:
+      - Pickup-Line
+    get:
+      consumes:
+      - application/json
+      description: Get a PickupLine by id
+      parameters:
+      - description: PickupLine ID
+        in: path
+        name: pickupLineId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.SinglePickupLineInfoResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Get a PickupLine by id
+      tags:
+      - Pickup-Line
+    put:
+      consumes:
+      - application/json
+      description: Update a PickupLine
+      parameters:
+      - description: PickupLine ID
+        in: path
+        name: pickupLineId
+        required: true
+        type: string
+      - description: PickupLine to update
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/requests.PickupLineBodyRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.SinglePickupLineInfoResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Update a PickupLine
+      tags:
+      - Pickup-Line
+  /pickup-lines/{pickupLineId}/reaction:
+    put:
+      consumes:
+      - application/json
+      description: Update a PickupLine Reaction
+      parameters:
+      - description: PickupLine ID
+        in: path
+        name: pickupLineId
+        required: true
+        type: string
+      - description: Reaction to the PickupLine
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/entities.Reaction'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.GenericSuccessResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Update a PickupLine Reaction
+      tags:
+      - Pickup-Line
+  /tags:
+    get:
+      description: Get the logged user tag list
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/entities.Tag'
+            type: array
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Get User Tag List
+      tags:
+      - Tag
+    post:
+      consumes:
+      - application/json
+      description: Create a Tag
+      parameters:
+      - description: tag to add
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/requests.TagBodyRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entities.Tag'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Create a Tag
+      tags:
+      - Tag
+  /tags/{tagId}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a Tag
+      parameters:
+      - description: Tag ID
+        in: path
+        name: tagId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.GenericSuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Delete a Tag
+      tags:
+      - Tag
+    put:
+      consumes:
+      - application/json
+      description: update a Tag (the update is in state mode, so you need to pass
+        the entire object)
+      parameters:
+      - description: Tag ID
+        in: path
+        name: tagId
+        required: true
+        type: string
+      - description: tag to update
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/requests.TagBodyRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entities.Tag'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Update a Tag
+      tags:
+      - Tag
+  /user:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a user and all related data
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.GenericSuccessResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Delete a user and all related data
+      tags:
+      - User
+    get:
+      consumes:
+      - application/json
+      description: Search users
+      parameters:
+      - in: query
+        name: display_name
+        type: string
+      - in: query
+        name: page
+        type: integer
+      - in: query
+        name: username
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.ElasticSearchUserListResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Search users
+      tags:
+      - User
+    post:
+      consumes:
+      - application/json
+      description: Create a User
+      parameters:
+      - description: user to add
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/requests.CreateUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.BaseUserInfoResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      summary: Create a User
+      tags:
+      - User
+  /user/info:
+    get:
+      consumes:
+      - application/json
+      description: Get User Info
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.BaseUserInfoResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Get User Info
+      tags:
+      - User
+  /user/name:
+    put:
+      consumes:
+      - application/json
+      description: Update the User display name
+      parameters:
+      - description: New display name
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/requests.UpdateUserDisplayNameRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.BaseUserInfoResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      security:
+      - Bearer: []
+      summary: Update the User display name
+      tags:
+      - User
+schemes:
+- https
+- http
+securityDefinitions:
+  Bearer:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
